@@ -34,7 +34,7 @@ def predict_plant_disease(crop_name, image_path):
         raise FileNotFoundError(f"Image file not found: {image_path}")
 
     if crop_name == 'cotton':
-        model = load_model("cotton_plant_disease_classifier.h5", compile=False)
+        model = load_model("model/cotton_plant_disease_classifier.h5", compile=False)
         img = image.load_img(image_path, target_size=(180, 180))
         img_array = image.img_to_array(img)
         img_array = np.expand_dims(img_array, axis=0)
@@ -54,7 +54,7 @@ def predict_plant_disease(crop_name, image_path):
             'Northern Leaf Blight',
             'healthy'
         ]
-        model = load_model('maize_disease_detection_new_model.h5', compile=False)
+        model = load_model('model/maize_disease_detection_new_model.h5', compile=False)
         img = image.load_img(image_path, target_size=(244, 244))
         x = image.img_to_array(img)
         x = np.expand_dims(x, axis=0)
@@ -66,7 +66,7 @@ def predict_plant_disease(crop_name, image_path):
         return disease_name, confidence, None
 
     elif crop_name == 'rice':
-        model = load_model("riceplantdetectionmodel.h5", compile=False)
+        model = load_model("model/riceplantdetectionmodel.h5", compile=False)
         img = image.load_img(image_path, target_size=(300, 300))
         img_array = image.img_to_array(img)
         img_array = np.expand_dims(img_array, axis=0)
@@ -90,7 +90,7 @@ def predict_plant_disease(crop_name, image_path):
             "Tomato_mosaic_virus",
             "Healthy"
         ]
-        model = load_model('model_inception.h5', compile=False)
+        model = load_model('model/model_inception.h5', compile=False)
         img = image.load_img(image_path, target_size=(224, 224))
         x = image.img_to_array(img)
         x = x / 255.0
@@ -102,7 +102,7 @@ def predict_plant_disease(crop_name, image_path):
         return result, confidence, None
 
     elif crop_name == 'wheat':
-        model = load_model("wheatDiseaseModel.h5", compile=False)
+        model = load_model("model/wheatDiseaseModel.h5", compile=False)
         img = image.load_img(image_path, target_size=(64, 64))
         img_array = image.img_to_array(img)
         img_array = np.expand_dims(img_array, axis=0)
