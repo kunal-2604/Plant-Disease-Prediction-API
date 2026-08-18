@@ -149,10 +149,3 @@ def predict_file(crop_name: str = Form(...), image: UploadFile = File(...) ):
     except Exception as e:
         return {"error": str(e)}
 
-"""
-Example curl command to test POST endpoint:
-curl -X POST "http://localhost:8000/predict" -H "Content-Type: application/json" -d '{"crop_name": "maize", "image_path": "cor.jpg"}'
-
-Example curl command to test POST file endpoint:
-curl -X POST "http://localhost:8000/predict-file" -F crop_name=maize -F image=@cor.jpg
-"""
